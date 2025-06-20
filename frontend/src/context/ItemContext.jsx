@@ -1,0 +1,34 @@
+import { createContext, useState, useContext, useEffect } from "react";
+
+const ItemContext = createContext();
+
+export const ItemProvider = ({ children }) => {
+  const [items, setItems] = useState([]);
+
+  // fetching items from backend
+  async function fetchItems() {
+    try {
+      const res = await fetch("http://localhost:5000/api/items");
+      const data = await res.json();
+      setItems(data);
+    } catch (err) {
+      console.error("Failed to load items:", err);
+    }
+  }
+
+  useEffect(() => {
+    fetchItems();
+  }, []);
+
+  const addItem = (item) => {
+    setItems((prev) => [...prev, item]);
+  };
+
+  return (
+    <ItemContext.Provider value={{ items, setItems, addItem, fetchItems }}>
+      {children}
+    </ItemContext.Provider>
+  );
+};
+
+export const useItems = () => useContext(ItemContext);
