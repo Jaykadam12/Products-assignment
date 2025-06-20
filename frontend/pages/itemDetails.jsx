@@ -18,23 +18,11 @@ export default function SingleItem() {
   }, [item]);
 const handleEnquire = async () => {
   try {
-<<<<<<< HEAD
     const res = await fetch("https://products-assignment-backend.onrender.com/api/enquire", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...item, userEmail }),
     });
-=======
-    const res = await fetch(
-      "https://products-assignment-backend.onrender.com/api/enquire",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...item, userEmail }),
-      }
-    );
->>>>>>> 42de424 (Allow CORS for deployed frontend)
-
     const data = await res.json();
 
     if (!res.ok) {
