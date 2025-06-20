@@ -14,7 +14,6 @@ function AddItems() {
     console.log("📦 Sending:", data);
 
     try {
-<<<<<<< HEAD
       const res = await fetch("https://products-assignment-backend.onrender.com/api/items", {
         method: "POST",
         headers: {
@@ -22,18 +21,6 @@ function AddItems() {
         },
         body: JSON.stringify(data),
       });
-=======
-      const res = await fetch(
-        "https://products-assignment-backend.onrender.com/api/items",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
->>>>>>> 42de424 (Allow CORS for deployed frontend)
 
       if (!res.ok) {
         const errorData = await res.json();
