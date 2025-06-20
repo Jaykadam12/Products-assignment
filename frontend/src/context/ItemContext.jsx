@@ -8,7 +8,7 @@ export const ItemProvider = ({ children }) => {
   // fetching items from backend
   async function fetchItems() {
     try {
-      const res = await fetch("http://localhost:5000/api/items");
+      const res = await fetch("https://products-assignment-backend.onrender.com/api/items");
       const data = await res.json();
       setItems(data);
     } catch (err) {
