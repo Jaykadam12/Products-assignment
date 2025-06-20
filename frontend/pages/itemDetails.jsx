@@ -18,7 +18,7 @@ export default function SingleItem() {
   }, [item]);
 const handleEnquire = async () => {
   try {
-    const res = await fetch("http://localhost:5000/api/enquire", {
+    const res = await fetch("https://products-assignment-backend.onrender.com/api/enquire", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...item, userEmail }),
