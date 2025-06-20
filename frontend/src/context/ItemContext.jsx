@@ -8,7 +8,13 @@ export const ItemProvider = ({ children }) => {
   // fetching items from backend
   async function fetchItems() {
     try {
+<<<<<<< HEAD
       const res = await fetch("https://products-assignment-backend.onrender.com/api/items");
+=======
+      const res = await fetch(
+        "https://products-assignment-backend.onrender.com/api/items"
+      );
+>>>>>>> 42de424 (Allow CORS for deployed frontend)
       const data = await res.json();
       setItems(data);
     } catch (err) {
